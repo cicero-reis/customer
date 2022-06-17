@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: ./.github/actions/composer
-      - uses: ./.github/actions/config-laravel
+      - uses: ./.github/actions/config
 
   test:
     name: Test
@@ -18,7 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: ./.github/actions/composer
-      - uses: ./.github/actions/config-laravel
+      - uses: ./.github/actions/config
       - uses: ./.github/actions/test
 
   quality:
@@ -27,5 +27,5 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: ./.github/actions/composer
-      - uses: ./.github/actions/config-laravel
+      - uses: ./.github/actions/config
       - run: ./vendor/bin/phpcs
