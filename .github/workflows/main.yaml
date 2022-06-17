@@ -4,9 +4,15 @@ on: push
 
 jobs:
   build:
-    name: Customer Build
+    name: Build
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v1
       - uses: ./.github/actions/composer
       - uses: ./.github/actions/config-laravel
+
+  test:
+    name: Test
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: ./.github/actions/test
