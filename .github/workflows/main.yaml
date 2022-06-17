@@ -13,7 +13,7 @@ jobs:
       - uses: ./.github/actions/config-laravel
 
   test:
-    name: Build
+    name: Test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
