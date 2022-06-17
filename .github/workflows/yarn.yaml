@@ -6,7 +6,7 @@ on:
       - 'resources/js/*'
 
 jobs:
-  build:
+  build-yarn:
     name: Build Yarn
     runs-on: ubuntu:latest
     steps:
