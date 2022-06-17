@@ -1,0 +1,15 @@
+name: Yarn Workflow
+
+on:
+  push:
+    paths:
+      - 'resources/js/*'
+
+jobs:
+  build:
+    name: Build Yarn
+    runs-on: ubuntu:latest
+    steps:
+      - uses: actions/checkout@v1
+      - run: yarn install
+      - run: yarn run production
