@@ -3,6 +3,7 @@ name: Customer
 on: push
 
 jobs:
+
   build:
     name: Build
     runs-on: ubuntu-latest
@@ -36,3 +37,12 @@ jobs:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
       run: php artisan test
+
+  quality:
+    name: Quality PSR2
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: ./.github/actions/composer
+      - uses: ./.github/actions/config-laravel
+      - run: ./vendor/bin/phpcs
