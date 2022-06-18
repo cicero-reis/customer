@@ -12,10 +12,10 @@ with:
   # cache vendor
   path: vendor
   key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/composer.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-build-${{ env.cache-name }}-
-          ${{ runner.os }}-build-
-          ${{ runner.os }}-
+  restore-keys: |
+    ${{ runner.os }}-build-${{ env.cache-name }}-
+    ${{ runner.os }}-build-
+    ${{ runner.os }}-
 
 runs:
   using: 'Docker'
