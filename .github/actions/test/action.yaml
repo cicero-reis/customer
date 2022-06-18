@@ -2,8 +2,6 @@ name: 'test'
 
 description: 'Run test'
 
-if: steps.cache-nodemodules.outputs.cache-hit != 'true
-
 runs:
   using: 'Docker'
   image: 'Dockerfile'
