@@ -3,6 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Models\Customer;
+use App\Observers\CustomerObserver;
+use Illuminate\Support\Facades\URL;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +16,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(
+            'App\Repositories\Contract\ICustomer', 
+            'App\Repositories\Eloquent\CustomerRepository'
+        );
     }
 
     /**
@@ -23,6 +29,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        URL::forceScheme('https');
+        
+        Customer::observe(CustomerObserver::class);
     }
 }
