@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\Eloquent\CustomerRepository;
 use App\Http\Resources\CustomerResource;
+use App\Http\Requests\StoreUpdateCustomer;
 
 class CustomerController extends Controller
 {
@@ -34,7 +35,7 @@ class CustomerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUpdateCustomer $request)
     {
         $customer = $this->model->store($request);
 
@@ -61,7 +62,7 @@ class CustomerController extends Controller
      * @param  int  $uuid
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $uuid)
+    public function update(StoreUpdateCustomer $request, $uuid)
     {
         try {
             $this->model->update($request, $uuid);
@@ -83,7 +84,7 @@ class CustomerController extends Controller
             $this->model->destroy($uuid);
             return response()->json(['mensagem' => 'Cliente removido']);
         } catch (\Exception $e) {
-            return response()->json(['mensagem' => 'Falha na exclusão da Cliente'], 404);
+            return response()->json(['mensagem' => 'Falha na exclusão do Cliente'], 404);
         }
     }
 }
