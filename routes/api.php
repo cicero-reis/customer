@@ -22,7 +22,6 @@ Route::group([
     Route::apiResource('customer', CustomerController::class);
   });
 
-Route::middleware('auth:sanctum')->get('/user',
-  function (Request $request) {
-    return $request->user();
-  });
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//   return $request->user();
+// });
