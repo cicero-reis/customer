@@ -66,7 +66,7 @@ class CustomerController extends Controller
         try {
             $this->model->update($request, $uuid);
             return response()->json(['mensagem' => 'Cliente atualizado']);
-        } catch(\Exception $e) {
+        } catch (\Exception $e) {
             return response()->json(['mensagem' => 'Falha na atualização do Cliente'], 404);
         }
     }
@@ -82,7 +82,7 @@ class CustomerController extends Controller
         try {
             $this->model->destroy($uuid);
             return response()->json(['mensagem' => 'Cliente removido']);
-        } catch(\Exception $e) {
+        } catch (\Exception $e) {
             return response()->json(['mensagem' => 'Falha na exclusão da Cliente'], 404);
         }
     }

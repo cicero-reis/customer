@@ -17,7 +17,7 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(
-            'App\Repositories\Contract\ICustomer', 
+            'App\Repositories\Contract\ICustomer',
             'App\Repositories\Eloquent\CustomerRepository'
         );
     }
@@ -30,7 +30,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         URL::forceScheme('https');
-        
         Customer::observe(CustomerObserver::class);
     }
 }
