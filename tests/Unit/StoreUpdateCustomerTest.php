@@ -37,10 +37,10 @@ class StoreUpdateCustomerTest extends TestCase
         $request = new StoreUpdateCustomer();
 
         $this->assertEquals([
-                'name.required'     => 'O campo nome é obrigatório.',
-                'name.min'          => 'O campo nome deve ter no minimo 3 caracteres.',
-                'name.max'          => 'O campo nome deve ter no minimo 20 caracteres.',
-                'name.unique'       => 'O campo nome já existe.'
+            'name.required'     => 'O campo nome é obrigatório.',
+            'name.min'          => 'O campo nome deve ter no minimo 3 caracteres.',
+            'name.max'          => 'O campo nome deve ter no minimo 20 caracteres.',
+            'name.unique'       => 'O campo nome já existe.'
         ], $request->messages());
     }
 }
