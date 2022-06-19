@@ -61,6 +61,5 @@ class StoreUpdateCustomerTest extends TestCase
         ]);        
 
         $response->assertStatus(422);
-    }   
-    
+    }       
 }
