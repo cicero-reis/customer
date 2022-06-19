@@ -20,8 +20,8 @@ Route::group([
     'prefix' => 'v1',
   ], function () {
     Route::apiResource('customer', CustomerController::class);
-});
+  });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+  return $request->user();
 });
