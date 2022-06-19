@@ -64,14 +64,10 @@ class CustomerController extends Controller
     public function update(Request $request, $uuid)
     {
         try {
-
             $this->model->update($request, $uuid);
-
             return response()->json(['mensagem' => 'Cliente atualizado']);
-
         } catch(\Exception $e) {
-
-            return response()->json(['mensagem' => 'Falha na atualização do Cliente'], 404);        
+            return response()->json(['mensagem' => 'Falha na atualização do Cliente'], 404);
         }
     }
 
@@ -84,14 +80,10 @@ class CustomerController extends Controller
     public function destroy($uuid)
     {
         try {
-
             $this->model->destroy($uuid);
-
             return response()->json(['mensagem' => 'Cliente removido']);
-
         } catch(\Exception $e) {
-
-            return response()->json(['mensagem' => 'Falha na exclusão da Cliente'], 404);        
+            return response()->json(['mensagem' => 'Falha na exclusão da Cliente'], 404);
         }
     }
 }
