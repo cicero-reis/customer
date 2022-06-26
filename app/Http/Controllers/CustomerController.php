@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Repositories\Eloquent\CustomerRepository;
 use App\Http\Resources\CustomerResource;
 use App\Http\Requests\StoreUpdateCustomer;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class CustomerController extends Controller
 {
@@ -50,9 +51,12 @@ class CustomerController extends Controller
      */
     public function show($uuid)
     {
-        $customer = $this->model->show($uuid);
-
-        return new CustomerResource($customer);
+        try {
+            $customer = $this->model->show($uuid);
+            return new CustomerResource($customer);
+        } catch(ModelNotFoundException $e) {
+            return response()->json(['mensagem' => 'Registro não encontrado'], 404);
+        }
     }
 
     /**
@@ -67,8 +71,8 @@ class CustomerController extends Controller
         try {
             $this->model->update($request, $uuid);
             return response()->json(['mensagem' => 'Cliente atualizado']);
-        } catch (\Exception $e) {
-            return response()->json(['mensagem' => 'Falha na atualização do Cliente'], 404);
+        } catch (ModelNotFoundException $e) {
+            return response()->json(['mensagem' => 'Falha na atualização do Cliente'], 400);
         }
     }
 
@@ -83,8 +87,8 @@ class CustomerController extends Controller
         try {
             $this->model->destroy($uuid);
             return response()->json(['mensagem' => 'Cliente removido']);
-        } catch (\Exception $e) {
-            return response()->json(['mensagem' => 'Falha na exclusão do Cliente'], 404);
+        } catch (ModelNotFoundException $e) {
+            return response()->json(['mensagem' => 'Falha na exclusão do Cliente'], 400);
         }
     }
 }

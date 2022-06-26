@@ -87,7 +87,7 @@ class CustomerTest extends TestCase
         ];
 
         $response1 = $this->putJson('/api/v1/customer/uuid', $data);
-        $response1->assertStatus(404);
+        $response1->assertStatus(400);
         $response1->assertJsonFragment([
             "mensagem" => "Falha na atualização do Cliente"
         ]);
@@ -112,7 +112,7 @@ class CustomerTest extends TestCase
         $customer =  Customer::factory()->create();
 
         $response1 = $this->deleteJson('/api/v1/customer/uuid');
-        $response1->assertStatus(404);
+        $response1->assertStatus(400);
         $response1->assertJsonFragment([
             "mensagem" => "Falha na exclusão do Cliente"
         ]);

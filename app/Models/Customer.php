@@ -12,6 +12,8 @@ class Customer extends Model
 
     protected $table = 'customer';
 
+    protected $dates = ['deleted_at'];
+
     protected $fillable = [
         'uuid',
         'name'
