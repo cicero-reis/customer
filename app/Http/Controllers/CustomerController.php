@@ -54,7 +54,7 @@ class CustomerController extends Controller
         try {
             $customer = $this->model->show($uuid);
             return new CustomerResource($customer);
-        } catch(ModelNotFoundException $e) {
+        } catch (ModelNotFoundException $e) {
             return response()->json(['mensagem' => 'Registro não encontrado'], 404);
         }
     }

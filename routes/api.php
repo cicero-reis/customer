@@ -20,15 +20,11 @@ Route::group([
     'prefix' => 'v1',
   ], function () {
     Route::get('/', function () {
-      return response()->json(['message' => 'Customer API', 'status' => 'Connected']);;
+        return response()->json(['message' => 'Customer API', 'status' => 'Connected']);
     });
     Route::apiResource('customer', CustomerController::class);
   });
 
 Route::get('/', function () {
-  return redirect('api');
+    return redirect('api');
 });
-
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//   return $request->user();
-// });
