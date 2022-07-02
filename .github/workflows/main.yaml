@@ -22,7 +22,7 @@ jobs:
   test:
     name: Test
     needs: build
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/composer
@@ -32,7 +32,7 @@ jobs:
   quality:
     name: Quality PSR2
     needs: test
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/composer
